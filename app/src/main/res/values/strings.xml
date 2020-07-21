@@ -3,4 +3,6 @@
     <string name="name">Cunda</string>
     <string name="star_image">Star image</string>
     <string name="cunda_image">Cunda</string>
+    <string name="dune_button">Done</string>
+    <string name="fav_face_hint">What is your favorite Cunda face?</string>
 </resources>
