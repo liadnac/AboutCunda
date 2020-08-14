@@ -41,9 +41,27 @@ class MainActivity : AppCompatActivity() {
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
-    fun f (view: View){
+
+    fun f(view: View) {
         zoomImageFromThumb(view, R.drawable.cunda1)
     }
+
+    fun f2(view: View) {
+        zoomImageFromThumb(view, R.drawable.cunda2)
+    }
+
+    fun f3(view: View) {
+        zoomImageFromThumb(view, R.drawable.cunda3)
+    }
+
+    fun f4(view: View) {
+        zoomImageFromThumb(view, R.drawable.liadandcunda)
+    }
+
+    fun f5(view: View) {
+        zoomImageFromThumb(view, R.drawable.kamiandcunda)
+    }
+
     private fun zoomImageFromThumb(thumbView: View, imageResId: Int) {
         // If there's an animation in progress, cancel it
         // immediately and proceed with this one.
@@ -109,13 +127,22 @@ class MainActivity : AppCompatActivity() {
         // Construct and run the parallel animation of the four translation and
         // scale properties (X, Y, SCALE_X, and SCALE_Y).
         currentAnimator = AnimatorSet().apply {
-            play(ObjectAnimator.ofFloat(
-                expandedImageView,
-                View.X,
-                startBounds.left,
-                finalBounds.left)
+            play(
+                ObjectAnimator.ofFloat(
+                    expandedImageView,
+                    View.X,
+                    startBounds.left,
+                    finalBounds.left
+                )
             ).apply {
-                with(ObjectAnimator.ofFloat(expandedImageView, View.Y, startBounds.top, finalBounds.top))
+                with(
+                    ObjectAnimator.ofFloat(
+                        expandedImageView,
+                        View.Y,
+                        startBounds.top,
+                        finalBounds.top
+                    )
+                )
                 with(ObjectAnimator.ofFloat(expandedImageView, View.SCALE_X, startScale, 1f))
                 with(ObjectAnimator.ofFloat(expandedImageView, View.SCALE_Y, startScale, 1f))
             }
@@ -154,13 +181,13 @@ class MainActivity : AppCompatActivity() {
 
                     override fun onAnimationEnd(animation: Animator) {
                         thumbView.alpha = 1f
-                        expandedImageView.visibility = View.GONE
+                        expandedImageView.visibility = View.INVISIBLE
                         currentAnimator = null
                     }
 
                     override fun onAnimationCancel(animation: Animator) {
                         thumbView.alpha = 1f
-                        expandedImageView.visibility = View.GONE
+                        expandedImageView.visibility = View.INVISIBLE
                         currentAnimator = null
                     }
                 })

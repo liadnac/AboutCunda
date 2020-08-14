@@ -3,156 +3,173 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/name"
-            style="@style/NameStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/name"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_size" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".MainActivity">
 
-            <EditText
-                android:id="@+id/fav_face_edit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/small_margin"
-                android:layout_marginTop="@dimen/layout_margin"
-                android:layout_marginRight="@dimen/small_margin"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/fav_face_hint"
-                android:inputType="textPersonName" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/name"
+                style="@style/NameStyle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/small_margin"
+                android:text="@string/name"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/fav_face_edit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/small_margin"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:layout_marginRight="@dimen/small_margin"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/fav_face_hint"
+                    android:inputType="textPersonName" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/small_margin"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:layout_marginRight="@dimen/small_margin"
+                    android:background="@color/color1"
+                    android:onClick="favFace"
+                    android:text="@string/dune_button"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/fav_face"
+                style="@style/NameStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/layout_margin"
-                android:layout_marginRight="@dimen/small_margin"
-                android:background="@color/color1"
-                android:onClick="favFace"
-                android:text="@string/dune_button"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/cunda_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:contentDescription="@string/cunda_image"
+                android:onClick="f"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/cunda1" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/NameStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:padding="@dimen/small_padding"
+                        android:text="@string/Cunda_bio"
+                        android:textSize="@dimen/text_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/cunda_image2"
+                            android:layout_width="0dp"
+                            android:layout_height="300dp"
+                            android:layout_margin="@dimen/small_margin"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@string/cunda_image"
+                            android:onClick="f2"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/cunda2" />
+
+                        <ImageButton
+                            android:id="@+id/cunda_image3"
+                            android:layout_width="0dp"
+                            android:layout_height="300dp"
+                            android:layout_margin="@dimen/small_margin"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@string/cunda_image"
+                            android:onClick="f3"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/cunda3" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/cunda_image4"
+                            android:layout_width="0dp"
+                            android:layout_height="300dp"
+                            android:layout_margin="@dimen/small_margin"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@string/cunda_image"
+                            android:onClick="f4"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/liadandcunda" />
+
+                        <ImageButton
+                            android:id="@+id/cunda_image5"
+                            android:layout_width="0dp"
+                            android:layout_height="300dp"
+                            android:layout_margin="@dimen/small_margin"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@string/cunda_image"
+                            android:onClick="f5"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/kamiandcunda" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
         </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/fav_face"
-            style="@style/NameStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:textAlignment="center"
-            android:visibility="gone" />
-
-        <ImageButton
-            android:id="@+id/cunda_image"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:contentDescription="@string/cunda_image"
-            android:onClick="f"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/cunda1" />
 
         <ImageView
             android:id="@+id/expanded_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#FFFFFF"
             android:contentDescription="@string/description_zoom_touch_close"
-            android:visibility="gone" />
-
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/NameStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/small_margin"
-                    android:padding="@dimen/small_padding"
-                    android:text="@string/Cunda_bio"
-                    android:textSize="@dimen/text_size" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="300dp"
-                        android:layout_margin="@dimen/small_margin"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/cunda_image"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/cunda2" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="300dp"
-                        android:layout_margin="@dimen/small_margin"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/cunda_image"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/cunda3" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="300dp"
-                        android:layout_margin="@dimen/small_margin"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/cunda_image"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/liadandcunda" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="300dp"
-                        android:layout_margin="@dimen/small_margin"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/cunda_image"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/kamiandcunda" />
-                </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
-
-    </LinearLayout>
+            android:visibility="invisible" />
+    </FrameLayout>
 </layout>
