@@ -8,13 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             tools:context=".MainActivity">
-
 
             <TextView
                 android:id="@+id/name"
@@ -40,6 +38,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/fav_face_hint"
+                    android:importantForAutofill="no"
                     android:inputType="textPersonName" />
 
                 <Button
@@ -53,8 +52,8 @@
                     android:onClick="favFace"
                     android:text="@string/dune_button"
                     android:textAlignment="center" />
-            </LinearLayout>
 
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/fav_face"
@@ -124,7 +123,6 @@
                             android:scaleType="centerCrop"
                             app:srcCompat="@drawable/cunda3" />
 
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -157,11 +155,9 @@
                             android:scaleType="centerCrop"
                             app:srcCompat="@drawable/kamiandcunda" />
 
-
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>
-
         </LinearLayout>
 
         <ImageView
@@ -170,6 +166,7 @@
             android:layout_height="match_parent"
             android:background="#FFFFFF"
             android:contentDescription="@string/description_zoom_touch_close"
+            android:onClick="onExpandedImageClick"
             android:visibility="invisible" />
     </FrameLayout>
 </layout>

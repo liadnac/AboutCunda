@@ -8,14 +8,12 @@ import android.content.Context
 import android.graphics.Point
 import android.graphics.Rect
 import android.graphics.RectF
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import sh.deut.aboutcunda.databinding.ActivityMainBinding
 
@@ -23,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private var currentAnimator: Animator? = null
     private var shortAnimationDuration: Int = 0
+    var unzoomCallback: (() -> Unit)? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -60,6 +60,21 @@ class MainActivity : AppCompatActivity() {
 
     fun f5(view: View) {
         zoomImageFromThumb(view, R.drawable.kamiandcunda)
+    }
+
+    @Suppress("UNUSED_PARAMETER")
+    fun onExpandedImageClick(view: View) {
+        unzoomCallback?.invoke()
+        unzoomCallback = null
+    }
+
+    override fun onBackPressed() {
+        if (unzoomCallback != null) {
+            unzoomCallback!!()
+            unzoomCallback = null
+        } else {
+            super.onBackPressed()
+        }
     }
 
     private fun zoomImageFromThumb(thumbView: View, imageResId: Int) {
@@ -164,7 +179,7 @@ class MainActivity : AppCompatActivity() {
         // Upon clicking the zoomed-in image, it should zoom back down
         // to the original bounds and show the thumbnail instead of
         // the expanded image.
-        expandedImageView.setOnClickListener {
+        unzoomCallback = {
             currentAnimator?.cancel()
 
             // Animate the four positioning/sizing properties in parallel,
